@@ -20,6 +20,8 @@ class Decoder(object):
             result.append(self.current())
             self.step()
 
+        self.step()
+
         return int(''.join(result))
     
     def s(self):
@@ -88,3 +90,18 @@ if __name__ == '__main__':
     # spam
     d = Decoder("4:spam")
     print(d.decode())
+
+    # Now, pull in some .torrent files and see if we can
+    # decode them. Including all the pieces data.
+    from os import listdir
+    from os.path import dirname, realpath, join
+
+    torrents = join(dirname(dirname(realpath(__file__))), 'torrents')
+
+    for torrent in listdir(torrents):
+        with open(join(torrents, torrent)) as t:
+            d = Decoder(t.read())
+            decoded = d.decode()
+
+            print(decoded)
+            print(decoded.keys())
