@@ -6,33 +6,46 @@ def s(source):
 
 def l(source):
     result = []
-    types = {
-        int:  i,
-        str:  s,
-        list: l,
-        dict: d
-    }
 
     for item in source:
-        result.append(types[type(item)](item))
+        result.append(encode(item))
 
     return "l%se" % ''.join(result)
 
 def d(source):
-    pass
+    result = []
+    source = [item for sublist in source.items() for item in sublist]
+
+    for item in source:
+        result.append(encode(item))
+
+    return "d%se" % ''.join(result)
+
+def encode(source):
+    types = {
+        int: i,
+        str: s,
+        list: l,
+        dict: d
+    }
+
+    return types[type(source)](source)
 
 if __name__ == '__main__':
     # i123e
-    print(i(123))
+    print(encode(123))
 
     # 12:Hello World!
-    print(s("Hello World!"))
+    print(encode("Hello World!"))
 
     # l4:spam4:eggse
-    print(l(["spam", "eggs"]))
+    print(encode(["spam", "eggs"]))
 
     # l3:abc3:abcl3:abcel3:abcee
-    print(l(['abc', 'abc', ['abc'], ['abc']]))
+    print(encode(['abc', 'abc', ['abc'], ['abc']]))
 
     # d3:cow3:moo4:spam4:eggse
-    print(d({'cow': 'moo', 'spam': 'eggs'}))
+    print(encode({'cow': 'moo', 'spam': 'eggs'}))
+
+    # d3:cow3:moo4:spaml5:eggsA5:eggsBi123eee
+    print(encode({'cow': 'moo', 'spam': ['eggsA', 'eggsB', 123]}))

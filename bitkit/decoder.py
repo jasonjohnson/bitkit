@@ -69,27 +69,24 @@ class Decoder(object):
         elif self.current() == 'i':
             return self.i()
 
+def decode(source):
+    return Decoder(source).decode()
 
 if __name__ == '__main__':
     # {'cow': 'moo', 'spam': 'eggs'}
-    d = Decoder("d3:cow3:moo4:spam4:eggse")
-    print(d.decode())
+    print(decode("d3:cow3:moo4:spam4:eggse"))
 
     # ['spam', 'eggs']
-    d = Decoder("l4:spam4:eggse")
-    print(d.decode())
+    print(decode("l4:spam4:eggse"))
 
     # ['abc', 'abc', ['abc'], ['abc']]
-    d = Decoder("l3:abc3:abcl3:abcel3:abcee")
-    print(d.decode())
+    print(decode("l3:abc3:abcl3:abcel3:abcee"))
 
     # 123
-    d = Decoder("i123e")
-    print(d.decode())
+    print(decode("i123e"))
 
     # spam
-    d = Decoder("4:spam")
-    print(d.decode())
+    print(decode("4:spam"))
 
     # Now, pull in some .torrent files and see if we can
     # decode them. Including all the pieces data.
@@ -100,8 +97,7 @@ if __name__ == '__main__':
 
     for torrent in listdir(torrents):
         with open(join(torrents, torrent)) as t:
-            d = Decoder(t.read())
-            decoded = d.decode()
+            decoded = decode(t.read())
 
             print(decoded)
             print(decoded.keys())
