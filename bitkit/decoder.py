@@ -34,7 +34,7 @@ class Decoder(object):
         
         length = int(''.join(length))
 
-        self.step()        
+        self.step()
 
         for i in range(length):
             result.append(self.current())
@@ -56,7 +56,6 @@ class Decoder(object):
 
     def d(self):
         pieces = self.l()
-
         return dict(zip(pieces[0::2], pieces[1::2]))
 
     def decode(self):
