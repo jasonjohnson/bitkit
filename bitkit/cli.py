@@ -1,25 +1,7 @@
 import argparse
 import sys
 
-
-def client(args):
-    print(args.torrent)
-
-
-def create(args):
-    print(args.source)
-    print(args.torrent)
-
-
-def tracker(args):
-    print(args.port)
-    print(args.address)
-
-
-def command(cmd):
-    return {"client": client,
-            "create": create,
-            "tracker": tracker}.get(cmd)
+import bitkit.tools
 
 
 def main():
@@ -39,4 +21,4 @@ def main():
 
     args = parser.parse_args(sys.argv[1:])
 
-    command(args.command)(args)
+    getattr(bitkit.tools, args.command)(args)

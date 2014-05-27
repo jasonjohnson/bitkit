@@ -1,13 +1,13 @@
 from urlparse import parse_qs
 from wsgiref.simple_server import make_server
 
-from bitkit.bencode.encoder import encode
+from bitkit.bencode import encode
 
 
 torrents = {}
 
 
-def tracker(env, start_response):
+def app(env, start_response):
     path = env.get("PATH_INFO")
     query = parse_qs(env.get("QUERY_STRING"))
 
@@ -38,6 +38,10 @@ def tracker(env, start_response):
                    "incomplete": 0,
                    "peers": peers})
 
-if __name__ == '__main__':
-    server = make_server('', 9090, tracker)
+
+def tracker(args):
+    print("Tracker started: http://%s:%d" % (args.address, args.port))
+    print("--")
+
+    server = make_server(args.address, args.port, app)
     server.serve_forever()

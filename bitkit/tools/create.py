@@ -7,3 +7,8 @@ meta = {
     },
     "announce": "http://127.0.0.1:9090/annouce"
 }
+
+
+def create(args):
+    print(args.source)
+    print(args.torrent)
