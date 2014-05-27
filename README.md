@@ -28,14 +28,16 @@ optional arguments:
 
 ```
 $ bitkit create -h
-usage: bitkit create [-h] source torrent
+usage: bitkit create [-h] [--step STEP] [--announce ANNOUNCE] source torrent
 
 positional arguments:
   source
   torrent
 
 optional arguments:
-  -h, --help  show this help message and exit
+  -h, --help           show this help message and exit
+  --step STEP
+  --announce ANNOUNCE
 ```
 
 ### Tracker
