@@ -34,8 +34,8 @@ def get_pieces(source, step):
 
 
 def create(args):
-    with open(args.torrent, 'wb') as tor:
-        tor.write(encode({
+    with open(args.torrent, 'wb') as torrent:
+        torrent.write(encode({
             "announce": args.announce,
             "info": {
                 "name": get_name(args.source),
