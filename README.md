@@ -77,3 +77,12 @@ decoded = decode(encoded)
 # {'a': 1, 'c': ['one', 'two', 3], 'b': 'two', 'd': {'e': [4, 5, 6]}}
 print(decoded)
 ```
+
+## References
+
+* http://bittorrent.org/beps/bep_0000.html
+* http://bittorrent.org/beps/bep_0003.html
+* https://wiki.theory.org/BitTorrentSpecification
+* http://www.kristenwidman.com/blog/how-to-write-a-bittorrent-client-part-1/
+* http://www.kristenwidman.com/blog/how-to-write-a-bittorrent-client-part-2/
+
