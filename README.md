@@ -49,3 +49,31 @@ optional arguments:
   --port PORT
   --address ADDRESS
 ```
+
+## Codec
+
+Additionally, the **bencode** codec in *bitkit* is available as a library. Simple add *bitkit* to your project as a dependency and use the 2-function interface.
+
+```python
+from bitkit.bencode import decode, encode
+
+original = {
+    "a": 1,
+    "b": "two",
+    "c": ["one", "two", 3],
+    "d": {"e": [4, 5, 6]}
+}
+
+# Encode our complex data structure into
+# the bencode format.
+encoded = encode(original)
+
+# d1:ai1e1:cl3:one3:twoi3ee1:b3:two1:dd1:eli4ei5ei6eeee
+print(encoded)
+
+# Now, reverse the process.
+decoded = decode(encoded)
+
+# {'a': 1, 'c': ['one', 'two', 3], 'b': 'two', 'd': {'e': [4, 5, 6]}}
+print(decoded)
+```
