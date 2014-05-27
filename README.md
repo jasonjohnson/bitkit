@@ -52,7 +52,7 @@ optional arguments:
 
 ## Codec
 
-Additionally, the **bencode** codec in *bitkit* is available as a library. Simple add *bitkit* to your project as a dependency and use the 2-function interface.
+Additionally, the **bencode** codec in *bitkit* is available as a library. Simply add *bitkit* to your project as a dependency and use the 2-function interface.
 
 ```python
 from bitkit.bencode import decode, encode
