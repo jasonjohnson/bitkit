@@ -1,4 +1,3 @@
-# Roughly what we need to calculate.
 meta = {
     "info": {
         "name": "ubuntu-12.04.4-server-amd64.iso",

@@ -1,8 +1,10 @@
 def i(source):
     return "i%se" % str(source)
 
+
 def s(source):
     return "%d:%s" % (len(source), source)
+
 
 def l(source):
     result = []
@@ -12,6 +14,7 @@ def l(source):
 
     return "l%se" % ''.join(result)
 
+
 def d(source):
     result = []
     source = [item for sublist in source.items() for item in sublist]
@@ -20,6 +23,7 @@ def d(source):
         result.append(encode(item))
 
     return "d%se" % ''.join(result)
+
 
 def encode(source):
     types = {

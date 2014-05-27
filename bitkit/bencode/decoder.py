@@ -1,5 +1,6 @@
 from string import digits
 
+
 class Decoder(object):
     def __init__(self, source):
         self.offset = 0
@@ -67,6 +68,7 @@ class Decoder(object):
             return self.l()
         elif self.current() == 'i':
             return self.i()
+
 
 def decode(source):
     return Decoder(source).decode()

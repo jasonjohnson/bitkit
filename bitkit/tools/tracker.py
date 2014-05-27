@@ -1,9 +1,11 @@
 from urlparse import parse_qs
 from wsgiref.simple_server import make_server
 
-from encoder import encode
+from bitkit.bencode.encoder import encode
+
 
 torrents = {}
+
 
 def tracker(env, start_response):
     path = env.get("PATH_INFO")
