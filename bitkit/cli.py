@@ -12,6 +12,8 @@ def main():
     client_parser.add_argument("torrent")
 
     create_parser = commands.add_parser("create")
+    create_parser.add_argument("--step", type=int, default=512*1024)
+    create_parser.add_argument("--announce", type=str, default="http://127.0.0.1:9090/announce")
     create_parser.add_argument("source")
     create_parser.add_argument("torrent")
 
