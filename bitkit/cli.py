@@ -21,6 +21,10 @@ def main():
     tracker_parser.add_argument("--port", type=int, default=9090)
     tracker_parser.add_argument("--address", type=str, default="0.0.0.0")
 
-    args = parser.parse_args(sys.argv[1:])
+    # Discard the Namespace object. It's easier just to
+    # work with a dictionary.
+    args = vars(parser.parse_args(sys.argv[1:]))
 
-    getattr(bitkit.tools, args.command)(args)
+    # We won't need the command inside the implementation.
+    # Just use it to dispatch into the tool.
+    getattr(bitkit.tools, args.pop('command'))(**args)

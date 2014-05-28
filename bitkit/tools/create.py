@@ -33,14 +33,14 @@ def get_pieces(source, step):
     return ''.join(pieces)
 
 
-def create(args):
-    with open(args.torrent, 'wb') as torrent:
+def create(source, torrent, step, announce):
+    with open(torrent, 'wb') as torrent:
         torrent.write(encode({
-            "announce": args.announce,
+            "announce": announce,
             "info": {
-                "name": get_name(args.source),
-                "length": get_length(args.source),
-                "pieces": get_pieces(args.source, args.step),
-                "piece length": args.step
+                "name": get_name(source),
+                "length": get_length(source),
+                "pieces": get_pieces(source, step),
+                "piece length": step
             }
         }))
