@@ -8,18 +8,18 @@ def main():
     parser = argparse.ArgumentParser()
     commands = parser.add_subparsers(dest="command")
 
-    client_parser = commands.add_parser("client")
-    client_parser.add_argument("torrent")
+    client = commands.add_parser("client")
+    client.add_argument("torrent")
 
-    create_parser = commands.add_parser("create")
-    create_parser.add_argument("--step", type=int, default=512*1024)
-    create_parser.add_argument("--announce", type=str, default="http://127.0.0.1:9090/announce")
-    create_parser.add_argument("source")
-    create_parser.add_argument("torrent")
+    create = commands.add_parser("create")
+    create.add_argument("--step", type=int, default=512*1024)
+    create.add_argument("--announce", type=str, default="http://127.0.0.1:9090/announce")
+    create.add_argument("source")
+    create.add_argument("torrent")
 
-    tracker_parser = commands.add_parser("tracker")
-    tracker_parser.add_argument("--port", type=int, default=9090)
-    tracker_parser.add_argument("--address", type=str, default="0.0.0.0")
+    tracker = commands.add_parser("tracker")
+    tracker.add_argument("--port", type=int, default=9090)
+    tracker.add_argument("--address", type=str, default="0.0.0.0")
 
     # Discard the Namespace object. It's easier just to
     # work with a dictionary.
