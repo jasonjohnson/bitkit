@@ -15,13 +15,15 @@ usage: bitkit [-h] {client,create,tracker} ...
 
 ```
 $ bitkit client -h
-usage: bitkit client [-h] torrent
+usage: bitkit client [-h] [--port PORT] [--address ADDRESS] torrent
 
 positional arguments:
   torrent
 
 optional arguments:
-  -h, --help  show this help message and exit
+  -h, --help         show this help message and exit
+  --port PORT
+  --address ADDRESS
 ```
 
 ### Torrent Creator
