@@ -53,3 +53,4 @@ if __name__ == '__main__':
 
     # d3:cow3:moo4:spaml5:eggsA5:eggsBi123eee
     print(encode({'cow': 'moo', 'spam': ['eggsA', 'eggsB', 123]}))
+

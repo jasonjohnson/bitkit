@@ -9,6 +9,8 @@ def main():
     commands = parser.add_subparsers(dest="command")
 
     client = commands.add_parser("client")
+    client.add_argument("--port", type=int, default=6881)
+    client.add_argument("--address", type=str, default="0.0.0.0")
     client.add_argument("torrent")
 
     create = commands.add_parser("create")
@@ -28,3 +30,4 @@ def main():
     # We won't need the command inside the implementation.
     # Just use it to dispatch into the tool.
     getattr(bitkit.tools, args.pop('command'))(**args)
+

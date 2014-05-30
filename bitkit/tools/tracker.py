@@ -39,9 +39,10 @@ def app(env, start_response):
                    "peers": peers})
 
 
-def tracker(args):
-    print("Tracker started: http://%s:%d" % (args.address, args.port))
+def tracker(address, port):
+    print("Tracker started: http://%s:%d" % (address, port))
     print("--")
 
-    server = make_server(args.address, args.port, app)
+    server = make_server(address, port, app)
     server.serve_forever()
+
